@@ -13,16 +13,16 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-def custom_slugify(value):
-    # 將所有非字母、數字或橫槓的字符替換為空格
-    value = re.sub(r'[^\w\s-]', '', value)
-    # 將多個連續空格替換為單個橫槓
-    value = re.sub(r'\s+', '-', value)
-    # 使用 Django 的 slugify 函數生成 slug
-    return slugify(value)
+
+    def custom_slugify(self, value):
+        # 將所有非字母、數字或橫槓的字符替換為空格
+        value = re.sub(r'[^\w\s-]', '', value)
+        # 將多個連續空格替換為單個橫槓
+        value = re.sub(r'\s+', '-', value)
+        # 使用 Django 的 slugify 函數生成 slug
+        return slugify(value)
+
     def save(self, *args, **kwargs):
         # 在保存前生成唯一的 slug
-        self.slug = custom_slugify(self.title)
+        self.slug = self.custom_slugify(self.title)
         super().save(*args, **kwargs)
-
-
