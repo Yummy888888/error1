@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import Yummy
 from mysite.models import Post
 
-admin.site.register(Post)
+Yummy.site.register(Post)
