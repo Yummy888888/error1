@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 import re
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)  # 使用 SlugField 來自動生成網址友好的 slug
