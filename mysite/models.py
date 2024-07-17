@@ -19,4 +19,8 @@ class Post(models.Model):
     value = re.sub(r'\s+', '-', value)
     # 使用 Django 的 slugify 函數生成 slug
     return slugify(value)
+def save(self, *args, **kwargs):
+        # 在保存前生成唯一的 slug
+        self.slug = custom_slugify(self.title)
+        super().save(*args, **kwargs)
 
