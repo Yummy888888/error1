@@ -19,8 +19,9 @@ from django.urls import path
 from mysite import views
 
 urlpatterns = [
-    # Other paths...
+    path('', views.homepage, name='homepage'),  # 添加根路径的视图处理函数或视图类
     path('post/<slug:slug>/', views.post_detail, name='post_detail'),
-    # Other paths...
+    # 其他路径...
 ]
+
 
