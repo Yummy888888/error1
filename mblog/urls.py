@@ -19,6 +19,8 @@ from django.urls import path
 from mysite import views
 
 urlpatterns = [
+    # Other paths...
     path('post/<slug:slug>/', views.post_detail, name='post_detail'),
-    path('', views.homepage, name='homepage'),
+    # Other paths...
 ]
+
