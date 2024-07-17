@@ -1,3 +1,4 @@
+from django.views.generic import DetailView
 from django.shortcuts import render
 from datetime import datetime
 from mysite.models import Post
