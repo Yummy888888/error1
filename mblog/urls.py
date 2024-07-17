@@ -15,10 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from mysite.views import PostDetailView, homepage  # 假設你的首頁視圖為 homepage
+from mysite.views import PostDetailView, homepage
 
 urlpatterns = [
-    path('', homepage, name='home'),  # 空路徑對應到 homepage 視圖
+    path('', homepage, name='home'),
     path('post/<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
-    # 其他路徑設置
 ]
