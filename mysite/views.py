@@ -6,5 +6,5 @@ def homepage(request):
   post_lists=list()
   for count, post in enumerate(posts):
     post_lists.append("No.{}:".format(str(count))+str(post)+"<hr>")
-    post_lists.append("<small>"+str(post.body))+"</small><br><br>")
+    post_lists.append("<small>"+str(post.body)+"</small><br><br>")
   return HttpResponse(post_lists)
