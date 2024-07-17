@@ -12,6 +12,10 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)  # 使用标题生成 slug
-        self.original_url = urllib.parse.quote(self.original_url)  # 编码原始 URL
+        if not self.slug:  # 如果 slug 没有设置，生成新的 slug
+            self.slug = slugify(self.title)
+
+        if self.original_url:  # 如果有原始 URL，进行编码
+            self.original_url = urllib.parse.quote(self.original_url)
+
         super().save(*args, **kwargs)
