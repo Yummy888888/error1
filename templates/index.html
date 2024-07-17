@@ -10,7 +10,7 @@
     <ul>
         {% for post in posts %}
             <p>
-                <a href="{% url 'post_detail' post.slug %}">{{post.title}}</a>
+               <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
             </p>
         {% endfor %}
     </ul>
