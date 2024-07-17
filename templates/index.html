@@ -9,7 +9,9 @@
     <hr>
     <ul>
         {% for post in posts %}
-            <a href="/post/{{post.slug}}">{{post.title}}</a>
+            <p>
+                <a href="/post/{{post.slug}}">{{post.title}}</a>
+            </p>
         {% endfor %}
     </ul>
     <hr>
