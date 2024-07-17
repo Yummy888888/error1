@@ -9,9 +9,7 @@
     <hr>
     <ul>
         {% for post in posts %}
-            <li>{{ post.title }}</li>
-            <p>{{ post.body }}</p>
-            <small>{{ post.pub_date }}</small><br><br>
+            <a href="/post/{{post.slug}}">{{post.title}}</a>
         {% endfor %}
     </ul>
     <hr>
