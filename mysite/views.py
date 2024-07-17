@@ -3,6 +3,11 @@ from mysite.models import Post
 from django.shortcuts import render
 from datetime import datetime
 
+def homepage(request):
+    posts = Post.objects.all()
+    now = datetime.now()
+    return render(request, "index.html", {'posts': posts, 'now': now})
+    
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
@@ -11,8 +16,5 @@ class PostDetailView(DetailView):
     slug_field = 'slug'  # 如果使用 slug 來查找，確保與模型中的字段名稱一致
     slug_url_kwarg = 'slug'  # URLconf 中的參數名稱
 
-def homepage(request):
-    posts = Post.objects.all()
-    now = datetime.now()
-    return render(request, "index.html", {'posts': posts, 'now': now})
+
 
